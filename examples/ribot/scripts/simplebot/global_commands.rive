@@ -1,0 +1,17 @@
+// global commands are included in other scripts
+! local concat = newline
+
+> topic global_commands
+
+
+    + start
+    - Hi there!
+
+    + menu{weight=10}
+    - {topic=menu}{@start}
+
+    + *
+    - {topic=menu}{@start}
+
+
+< topic

@@ -1,0 +1,9 @@
+//demonstrating using variables
+! local concat = newline
+
+> topic username inherits global_commands
+
+  + start
+  <set username=default>
+
+< topic

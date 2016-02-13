@@ -1,0 +1,88 @@
+// chat about 
+! local concat = newline
+
+
+> topic lesson_one inherits global_commands
+  + start
+  - Now starting lesson <get lesson_number>, question <set question_number=1><get question_number>!
+  ^ {@<get question_number>} 
+
+
+  //- Cool, <star2>! You are a noun: <star1>, other: <star2>, adverb: <star3>, and verb: <star4>!
++[*](@onenouns) says [*] (@onestates) (@oneadverbs) (careful|away)[*]
+  - <set gating=<star3>>
+  ^ {@<get question_number>}
+
+ // - Cool, <star3>! You are a noun: <star1>, adverb: <star2>, and verb: <star3>,!
++[*](@onenouns) says [*] (@oneadverbs) (@oneverbs)[*]
+  - <set gating=<star2>>
+  ^ {@<get question_number>}
+
++ *
+   - \nOops, that is not right. Try the question again :)!\n<set gating=undefined>
+   ^ {@<get question_number>}
+
+
+
++ 12
+  *<get gating> == usually =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=undefined>
+  -<set question_number=12>\nThe doctor says, "I go to the hospital." \n
+  ^Words:[rarely|usually]\n
++ 11
+  *<get gating> == never =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=12>{@<get question_number>}
+  *<get gating> == sometimes =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=12>{@<get question_number>}
+  -<set question_number=11>\nThe police officer says, "I arrest people." \n
+  ^Words:[sometimes|never]\n
++ 10
+  *<get gating> == always =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=11>{@<get question_number>}
+  *<get gating> == rarely =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=11>{@<get question_number>}
+  -<set question_number=10>\nThe football player says, "I practice in the middle of the night." \n
+  ^Words:[always|rarely]\n
++ 9
+  *<get gating> == always =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=10>{@<get question_number>}
+  *<get gating> == seldom =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=10>{@<get question_number>}
+  -<set question_number=9>\nThe salesperson says, "I fight with customers." \n
+  ^Words:[always|seldom]\n
++ 8
+  *<get gating> == never =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=9>{@<get question_number>}
+  *<get gating> == often =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=9>{@<get question_number>}
+  -<set question_number=8>\nThe taxi driver says, "I drive at night." \n
+  ^Words:[never|often]\n
++ 7
+  *<get gating> == always =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=8>{@<get question_number>}
+  *<get gating> == rarely =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=8>{@<get question_number>}
+  -<set question_number=7>\nThe pharmacist says, "I'm careful." \n
+  ^Words:[always|rarely]\n
++ 6
+  *<get gating> == almost always =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=7>{@<get question_number>}
+  *<get gating> == seldom =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=7>{@<get question_number>}
+  -<set question_number=6>\nThe mechanic says, "I find the problem with the car." \n
+  ^Words:[almost always|seldom]\n
++ 5
+  *<get gating> == never =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=6>{@<get question_number>}
+  -<set question_number=5>\nThe chef says, "I put lemon in milk." \n
+  ^Words:[never|often]\n
++ 4
+  *<get gating> == never =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=5>{@<get question_number>}
+  *<get gating> == rarely =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=5>{@<get question_number>}
+  -<set question_number=4>\nThe factory worker says, "I'm bored." \n
+  ^Words:[once in a while|never]\n
++ 3
+  *<get gating> == every day =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=4>{@<get question_number>}
+  *<get gating> == frequently =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=4>{@<get question_number>}
+  -<set question_number=3>\nThe nurse says, "The hospital is open." \n
+  ^Words:[every day|frequently]\n
++ 2
+  *<get gating> == almost never =>You got <get question_number> correct!\nLet's start again!\n\n<set question_number=3>{@<get question_number>}
+  -<set question_number=2>\nThe firefighter says, "I wear a suit and tie to work." \n
+  ^Words:[every day|almost never]\n
++ 1
+  *<get gating> == frequently =>You are correct!\nLet's start again!\n\n<set question_number=2>{@<get question_number>}
+  *<get gating> == never =>You are correct!\nLet's start again!\n\n<set question_number=2>{@<get question_number>}
+  -<set question_number=1>\nThe flight attendant says, "We're away from home for three or four days."
+  ^Words:[frequently|never]
++ undefined
+  - {topic=menu}
+
+
+< topic

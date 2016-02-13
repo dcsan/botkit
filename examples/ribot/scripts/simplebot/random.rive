@@ -1,0 +1,11 @@
+ //every bot needs a "random" topic as a fallback
+! local concat = newline
+
+
+> topic random inherits global_commands
+
+  + *
+  - Hi there! {topic=menu}
+
+
+< topic
