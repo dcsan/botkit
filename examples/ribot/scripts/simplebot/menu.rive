@@ -1,0 +1,11 @@
+ //every bot needs a "random" topic as a fallback
+! local concat = newline
+
+> topic menu inherits global_commands
+
++ *
+  - Menu: Heading over to lesson <set lesson_number=1><get lesson_number>! 
+  ^ {topic=lesson_one}{@start}
+
+
+ < topic
